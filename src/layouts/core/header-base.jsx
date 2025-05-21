@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import { TextField } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 import { varAlpha } from 'src/theme/styles';
@@ -9,7 +10,6 @@ import { HeaderSection } from './header-section';
 import { Searchbar } from '../components/searchbar';
 import { SignInButton } from '../components/sign-in-button';
 import { AccountDrawer } from '../components/account-drawer';
-import { LanguagePopover } from '../components/language-popover';
 
 // ----------------------------------------------------------------------
 
@@ -69,7 +69,15 @@ export function HeaderBase({
               {searchbar && <Searchbar data-slot="searchbar" data={data?.nav} />}
 
               {/* -- Language popover -- */}
-              {localization && <LanguagePopover data-slot="localization" data={data?.langs} />}
+              {localization && (
+                <TextField
+                  size="small"
+                  label="Language"
+                  select
+                  variant="outlined"
+                  sx={{ width: 235 }}
+                />
+              )}
 
               {/* -- Account drawer -- */}
               {account && <AccountDrawer data-slot="account" data={data?.account} />}
