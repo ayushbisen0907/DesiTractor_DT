@@ -8,9 +8,9 @@ import { Logo } from 'src/components/logo';
 
 import { HeaderSection } from './header-section';
 import { Searchbar } from '../components/searchbar';
+import { MenuButton } from '../components/menu-button';
 import { SignInButton } from '../components/sign-in-button';
 import { AccountDrawer } from '../components/account-drawer';
-import { MenuButton } from '../components/menu-button';
 
 // ----------------------------------------------------------------------
 
