@@ -1,12 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 
 import { CONFIG } from 'src/config-global';
+import { DashboardContent } from 'src/layouts/dashboard';
 
-import { BlankView } from 'src/sections/blank/view';
+import CarouselImageCard from 'src/sections/tractors/carouselImage/carouselImageCard';
 
 // ----------------------------------------------------------------------
 
-const metadata = { title: `Page one | Dashboard - ${CONFIG.site.name}` };
+const metadata = { title: `Tractors - ${CONFIG.site.name}` };
 
 export default function Page() {
   return (
@@ -14,7 +15,9 @@ export default function Page() {
       <Helmet>
         <title> {metadata.title}</title>
       </Helmet>
-      <BlankView title="Page one" />z
+      <DashboardContent maxWidth="xl">
+        <CarouselImageCard />
+      </DashboardContent>
     </>
   );
 }

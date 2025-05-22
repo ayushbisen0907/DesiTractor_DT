@@ -46,7 +46,8 @@ export function DashboardContent({ sx, children, disablePadding, maxWidth = 'lg'
         display: 'flex',
         flex: '1 1 auto',
         flexDirection: 'column',
-        pt: 'var(--layout-dashboard-content-pt)',
+        pt: 5,
+        ml: 0,
         pb: 'var(--layout-dashboard-content-pb)',
         [theme.breakpoints.up(layoutQuery)]: {
           px: 'var(--layout-dashboard-content-px)',
