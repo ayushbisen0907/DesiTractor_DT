@@ -10,6 +10,7 @@ import { HeaderSection } from './header-section';
 import { Searchbar } from '../components/searchbar';
 import { SignInButton } from '../components/sign-in-button';
 import { AccountDrawer } from '../components/account-drawer';
+import { MenuButton } from '../components/menu-button';
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +22,13 @@ export function HeaderBase({
   onOpenNav,
   layoutQuery,
 
-  slotsDisplay: { signIn = true, account = true, searchbar = true, localization = true } = {},
+  slotsDisplay: {
+    signIn = true,
+    account = true,
+    searchbar = true,
+    menuButton = true,
+    localization = true,
+  } = {},
 
   ...other
 }) {
@@ -43,7 +50,17 @@ export function HeaderBase({
           <>
             {slots?.leftAreaStart}
 
-            {/* -- Logo -- */}
+            {menuButton && (
+              <MenuButton
+                data-slot="menu-button"
+                onClick={onOpenNav}
+                sx={{
+                  mr: 1,
+                  ml: -1,
+                  [theme.breakpoints.up(layoutQuery)]: { display: 'none' },
+                }}
+              />
+            )}
 
             <Logo
               width={30}

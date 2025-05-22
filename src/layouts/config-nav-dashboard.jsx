@@ -22,11 +22,7 @@ const ICONS = {
 // ----------------------------------------------------------------------
 
 export const navData = [
-  /**
-   * Overview
-   */
   {
-    subheader: 'Overview 6.0.0',
     items: [
       { title: 'Tractor', path: paths.dashboard.root, icon: ICONS.tractor },
       { title: 'Equipments', path: paths.dashboard.two, icon: ICONS.eqipments },
@@ -37,9 +33,7 @@ export const navData = [
       { title: 'News & Update', path: paths.dashboard.three, icon: ICONS.news },
     ],
   },
-  /**
-   * Management
-   */
+
   {
     items: [
       {
