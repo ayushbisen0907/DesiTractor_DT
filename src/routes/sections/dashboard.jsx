@@ -7,12 +7,12 @@ import { LoadingScreen } from 'src/components/loading-screen';
 
 // ----------------------------------------------------------------------
 
-const IndexPage = lazy(() => import('src/pages/app/tractor'));
-const PageTwo = lazy(() => import('src/pages/app/two'));
-const PageThree = lazy(() => import('src/pages/app/three'));
-const PageFour = lazy(() => import('src/pages/app/four'));
-const PageFive = lazy(() => import('src/pages/app/five'));
-const PageSix = lazy(() => import('src/pages/app/six'));
+const IndexPage = lazy(() => import('src/pages/dashboard/tractor'));
+const PageTwo = lazy(() => import('src/pages/dashboard/two'));
+const PageThree = lazy(() => import('src/pages/dashboard/three'));
+const PageFour = lazy(() => import('src/pages/dashboard/four'));
+const PageFive = lazy(() => import('src/pages/dashboard/five'));
+const PageSix = lazy(() => import('src/pages/dashboard/six'));
 
 // ----------------------------------------------------------------------
 
@@ -26,7 +26,7 @@ const layoutContent = (
 
 export const dashboardRoutes = [
   {
-    path: 'app',
+    path: 'dashboard',
     // Always skip auth check for the dashboard routes
     element: <>{layoutContent}</>,
     children: [
