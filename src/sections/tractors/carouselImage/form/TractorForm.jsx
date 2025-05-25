@@ -1,28 +1,26 @@
 import React, { useState } from 'react';
 
-import {
-  Box,
-  Card,
-  Grid,
-  MenuItem,
-  TextField,
-  Typography,
-  CardHeader,
-  CardContent,
-} from '@mui/material';
+import { Card, Grid, TextField, Typography, CardHeader, CardContent } from '@mui/material';
 
-import LocationAutocomplete from './LocationAutocomplete';
+import LocationAutocomplete from './LocationAutocomplete'; // Make sure this is a responsive component too
 
 // Sample data for select fields
 const fieldData = [
   { label: 'Location', name: 'location', type: 'location' },
-  { label: 'Type', name: 'type', options: ['Tractor', 'Harvester', 'Sprayer'] },
-  { label: 'Status', name: 'status', options: ['Active', 'Inactive', 'Maintenance'] },
+  { label: 'Name', name: 'name', placeholder: 'Enter your name' },
+  {
+    label: 'Mobile Number',
+    name: 'mobileNumber',
+    type: 'number',
+    placeholder: 'Enter your mobile number',
+  },
 ];
 
 export default function TractorForm() {
   const [formValues, setFormValues] = useState({
     location: '',
+    type: '',
+    status: '',
   });
 
   const handleChange = (name, value) => {
@@ -30,42 +28,48 @@ export default function TractorForm() {
   };
 
   return (
-    <Card sx={{ width: { xs: '100%', sm: 450 } }}>
-      <CardHeader title="Sell Your Used Tractor" />
+    <Card
+      sx={{
+        maxWidth: 440,
+        px: { xs: 2 },
+        py: { xs: 2 },
+      }}
+    >
+      <CardHeader title="Sell Your Used Tractor" sx={{ pb: 0 }} />
       <CardContent>
-        <Grid container spacing={2}>
+        <Grid container spacing={3}>
           {fieldData.map((field) => (
             <Grid item xs={12} key={field.name}>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 3,
-                }}
-              >
-                <Typography variant="body2" color="text.secondary" sx={{ minWidth: 150 }}>
-                  {field.label}
-                </Typography>
-                {field.type === 'location' ? (
-                  <LocationAutocomplete onSelect={(value) => handleChange(field.name, value)} />
-                ) : (
-                  <TextField
-                    fullWidth
-                    size="small"
-                    variant="outlined"
-                    label={field.label}
-                    select
-                    value={formValues[field.name]}
-                    onChange={(e) => handleChange(field.name, e.target.value)}
+              <Grid container spacing={1} alignItems="flex-start">
+                <Grid item xs={12} sm={4}>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ fontWeight: 500, mt: 1 }}
                   >
-                    {field.options.map((option) => (
-                      <MenuItem key={option} value={option}>
-                        {option}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                )}
-              </Box>
+                    {field.label}
+                  </Typography>
+                </Grid>
+                <Grid item xs={12} sm={8}>
+                  {field.type === 'location' ? (
+                    <LocationAutocomplete
+                      onSelect={(value) => handleChange(field.name, value)}
+                      value={formValues[field.name]}
+                    />
+                  ) : (
+                    <TextField
+                      fullWidth
+                      size="small"
+                      variant="outlined"
+                      label={field.label}
+                      placeholder={field.placeholder || ''}
+                      type={field.type === 'number' ? 'number' : 'text'}
+                      value={formValues[field.name]}
+                      onChange={(e) => handleChange(field.name, e.target.value)}
+                    />
+                  )}
+                </Grid>
+              </Grid>
             </Grid>
           ))}
         </Grid>
