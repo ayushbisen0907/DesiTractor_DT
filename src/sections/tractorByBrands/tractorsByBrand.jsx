@@ -2,6 +2,9 @@ import { Box, Tab, Tabs, Button, Typography } from '@mui/material';
 
 import { useTabs } from 'src/hooks/use-tabs';
 
+import NewTractorByBrand from './newTractorsByBrand/newTractorByBrand';
+import UsedTractorByBrand from './usedTractorsByBrand/usedTractorByBrand';
+
 const TABS = [
   { value: 'newTractor', label: 'New ' },
   { value: 'usedTractor', label: 'Used Tractor' },
@@ -37,9 +40,9 @@ export default function TractorsByBrand() {
               <Tab key={tab.value} value={tab.value} icon={tab.icon} label={tab.label} />
             ))}
           </Tabs>
-          {tabs.value === 'newTractor' && 'fghn'}
+          {tabs.value === 'newTractor' && <NewTractorByBrand />}
 
-          {tabs.value === 'usedTractor' && 'fghjk'}
+          {tabs.value === 'usedTractor' && <UsedTractorByBrand />}
         </Box>
       </Box>
     </Box>
